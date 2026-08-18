@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0609" />
+    <meta name="description" content="一朵写给 LMX 的粒子玫瑰。" />
+    <title>LMX · 遇见你</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <canvas id="roseCanvas" aria-label="由红色、粉色和金色光点组成的粒子玫瑰"></canvas>
+      <div id="heartLayer" aria-hidden="true"></div>
+      <div class="ambient-glow" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-name">LMX</span>
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="brand-caption">FOR YOU</span>
+        </div>
+        <div class="live-mark"><span class="live-dot" aria-hidden="true"></span> A LITTLE MAGIC</div>
+      </header>
+
+      <section class="hero-copy" aria-labelledby="heroTitle">
+        <p class="eyebrow">A ROSE MADE OF LIGHT</p>
+        <h1 id="heroTitle">LMX</h1>
+        <p class="message">遇见你，是我最幸运的事</p>
+        <p class="subcopy">每一颗光，都在向你靠近。</p>
+      </section>
+
+      <div class="gesture-hint" id="gestureHint">
+        <span class="hint-star" aria-hidden="true">✦</span>
+        <span>触碰屏幕，让玫瑰为你盛开</span>
+      </div>
+
+      <div class="controls" aria-label="玫瑰控制">
+        <button class="control-button primary" id="bloomButton" type="button">
+          <span class="button-icon" aria-hidden="true">✦</span>
+          <span>点亮玫瑰</span>
+        </button>
+        <button class="control-button" id="musicButton" type="button" aria-pressed="false">
+          <span class="button-icon" aria-hidden="true">♪</span>
+          <span id="musicLabel">播放音乐</span>
+        </button>
+      </div>
+
+      <footer class="footer-note">FOR LMX · WITH ALL MY HEART</footer>
+    </main>
+    <script src="three.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
