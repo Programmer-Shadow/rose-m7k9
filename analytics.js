@@ -18,6 +18,7 @@
   let nextAllowedAt = 0;
   let pointer = null;
   let dragged = false;
+  let lastClickAt = -Infinity;
 
   function remove(id) {
     memory.delete(id);
@@ -95,8 +96,12 @@
 
   function track(type, target) {
     try {
+      // Share one two-second window across all click targets on this page.
+      const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
+      if (type === 'click' && now - lastClickAt < 2000) return;
       const e = { id: uuid(), at: new Date().toISOString(), type, target };
       memory.set(e.id, e);
+      if (type === 'click') lastClickAt = now;
       try { localStorage.setItem(PREFIX + e.id, JSON.stringify(e)); } catch { /* Memory fallback. */ }
       pending();
       schedule();
